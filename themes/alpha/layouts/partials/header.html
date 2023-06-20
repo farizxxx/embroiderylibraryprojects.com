@@ -1,0 +1,49 @@
+<div id="header">
+    <div class="maxwrap" id="headeratas">
+        <div class="section" id="headerdua">
+            <div class="widget Header" data-version="1" id="Header1">
+                <div id="header-inner">
+                    <div class="titlewrapper">
+                        <div class="title">
+                            <a href="/" title="{{ .Site.Params.Title }}">
+                                <span>{{ .Site.Params.Title }}</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="descriptionwrapper">
+                        <div class="description">
+                            <span>{{ .Site.Params.tagline }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-right section no-items section" id="header-right"></div>
+        <div class="menusearch">
+            <form action="/search" class="searchform" method="get">
+                <input class="searchfield" id="q" name="q" onblur='""==this.value&&(this.value=this.defaultValue)'
+                    onfocus='this.value==this.defaultValue&&(this.value="")' placeholder="Search this site..."
+                    required="required" type="text" value="">
+                <input id="searchsubmit" type="submit" value="">
+                <span class="ico ico-mglass"></span>
+                <input name="max-results" type="hidden" value="8">
+            </form>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <nav id="navigation-hype">
+        <div class="maxwrap">
+            <input type="checkbox">☰ Menu <ul>
+                {{ range .Site.Menus.main }}
+                <li>
+                    <a href="{{ .URL }}">
+                        <span>{{ .Name }}</span>
+                    </a>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+    </nav>
+</div>
+<div class="clear"></div>

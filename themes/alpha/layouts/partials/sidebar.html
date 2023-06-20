@@ -1,0 +1,82 @@
+<div id="sidebar-wrapper">
+    <div class="sidebar section" id="sidebar">
+        <!-- social links start -->
+        <div class="widget HTML" data-version="1" id="HTML68">
+            <h2 class="title">Follow Us</h2>
+            <div class="widget-content">
+                <div class="invision-socials-icon mom-socials-widget">
+                    <ul>
+                        <li class="facebook">
+                            <a href="#" rel="nofollow" target="_blank" title="Follow us on Facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+
+                        <li class="pinterest">
+                            <a href="#" rel="nofollow" target="_blank" title="Follow us on Pinterest">
+                                <i class="fa fa-pinterest"></i>
+                            </a>
+                        </li>
+  
+                        <li class="rss">
+                            <a href="/rss.xml" rel="nofollow" target="_blank" title="Follow us on RSS">
+                                <i class="fa fa-rss"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- social links end -->
+
+        <!-- category start -->
+        {{ if .Site.Taxonomies.categories }}
+        <div class="widget Label" data-version="1" id="Label1">
+            <h2>Select Category</h2>
+            <div class="widget-content list-label-widget-content">
+                <div class="dropmedown">
+                    <select class="dropdown-select" onchange="location=this.options[this.selectedIndex].value">
+                        <option>Select Category</option>
+                        {{ range $key, $value := .Site.Taxonomies.categories }}
+                        <option class="labdrop" title="Blogger" value="{{ $.Site.BaseURL }}categories/{{ $key | urlize  }}">
+                            {{ $key | humanize }}
+                        </option>
+                        {{ end }}
+                    </select>
+                </div>
+            </div>
+        </div>
+        {{ end }}
+        <!-- cetegory end -->
+
+        <!-- recent posts start -->
+        <div class="widget PopularPosts" id="PopularPosts1">
+            <h2>Recent Posts</h2>
+            <div class="widget-content popular-posts">
+                <ul>
+                    {{ range first .Site.Params.recentposts (shuffle (where (where .Site.RegularPages "Type" "!=" "pages" ) "Title" "!=" .Title )) }}
+                    <li>
+                        <div class="item-thumbnail-only">
+                            <div class="item-thumbnail">
+                                <a href="{{ .RelPermalink }}">
+                                    <img class="lozad" alt="{{ .Title }}" height="72"
+                                        data-src="{{ .Params.image | default .Params.featured_image }}"
+                                        title="{{ .Title }}" width="72">
+                                </a>
+                            </div>
+                            <div class="item-title">
+                                <a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </li>
+                    {{- end }}
+                </ul>
+            </div>
+        </div>
+        <!-- recent posts end -->      
+
+    </div>
+</div>
+<div class="clear">&nbsp;</div>
+<div class="clear"></div>

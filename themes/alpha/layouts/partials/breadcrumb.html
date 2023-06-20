@@ -1,0 +1,27 @@
+<div class="breadcrumbs">
+        <a class="homebread" href="/" title="Home">
+            <span>Home</span>
+        </a>
+    <svg viewBox="0 0 24 24">
+        <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="#000000">
+        </path>
+    </svg>
+    <span itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem">
+            {{ with .Params.categories }}
+                {{ range . }}
+                    <a href="{{ . | printf "%s%s" "/categories/" | urlize | lower | relLangURL }}" title="{{ . }}">
+                        <span>
+                            {{ . }}
+                        </span>
+                    </a>
+                {{ end }}
+            {{ end }}
+    </span>
+    <svg viewBox="0 0 24 24">
+        <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" fill="#000000">
+        </path>
+    </svg>
+    <span>
+        {{ .Title }}
+    </span>
+</div>

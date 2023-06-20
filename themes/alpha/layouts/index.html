@@ -1,0 +1,64 @@
+{{ define "main" }}
+    <div id="main-wrapper">
+        {{ range first 1 .Site.RegularPages.ByDate.Reverse }}
+            <article class="post featured">
+                <div class="post-thumb">
+                    <a class="thumb" href="{{ .Permalink }}">
+                        <img data-src="{{ .Params.image | default .Params.featured_image }}" alt="{{ .Title }}" alt="{{ .Title }}" class="lozad" height="165" width="280">
+                    </a>
+                    <span class="label-info">
+                        {{ with .Params.categories }}
+                            {{ range . }}
+                                <a href="{{ . | printf "%s%s" "/categories/" | urlize | lower | relLangURL }}" title="{{ . }}"  rel="tag">
+                                    {{ . }}
+                                </a>
+                            {{ end }}
+                        {{ end }}
+                    </span>
+                </div>
+                <h1 class="post-title">
+                    <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
+                </h1>
+                {{- partial "post-header.html" . -}}
+                <div class="snippets">
+                {{ if gt (len .Summary) 250	}}
+                    {{slicestr .Summary 0 250}}
+                {{ end }}
+                </div>
+                <div class="clear"></div>
+            </article>
+        {{ end }}
+        {{ $paginator := .Paginate (where .Site.RegularPages "Type" "!=" "pages") }}
+        {{ range $index, $page := $paginator.Pages }}
+          {{ if gt $index 0 }}
+        <article class="post">
+            <div class="post-thumb">
+                <a class="thumb" href="{{ .Permalink }}">
+                    <img data-src="{{ .Params.image | default .Params.featured_image }}" alt="{{ .Title }}" alt="{{ .Title }}" class="lozad" height="165" width="280">
+                </a>
+                <span class="label-info">
+                    {{ with .Params.categories }}
+                        {{ range . }}
+                            <a href="{{ . | printf "%s%s" "/categories/" | urlize | lower | relLangURL }}" title="{{ . }}"  rel="tag">
+                                {{ . }}
+                            </a>
+                        {{ end }}
+                    {{ end }}
+                </span>
+            </div>
+            <h2 class="post-title entry-title">
+                <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
+            </h2>
+            {{- partial "post-header.html" . -}}
+            <div class="snippets">
+            {{ if gt (len .Summary) 160	}}
+                {{slicestr .Summary 0 160}}
+            {{ end }}
+            </div>
+            <div class="clear"></div>
+        </article>
+        {{ end }}        
+        {{ end }}        
+        {{ partial "pagination.html" . }}
+    </div>
+{{ end }}

@@ -1,0 +1,110 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-language" content="{{ site.LanguageCode }}">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{ if .IsPage }}/css/single.css{{ else }}/css/home.css{{ end }}">
+    <link rel="icon" href="{{ .Site.BaseURL }}favicon.ico" type="image/x-icon">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ .Site.BaseURL }}rss.xml">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}</title>
+    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ if gt (len .Summary) 160 }}{{ slicestr .Summary 0 160 }}{{ end }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ else }}{{ if gt (len .Summary) 160 }}{{ slicestr .Summary 0 160 }}{{ end }}{{ end }}{{ end }}">
+    {{ if .IsHome }}
+    <link rel="canonical" href="{{ .Site.BaseURL }}" />
+    <meta property="og:site_name" content="{{ .Site.Title }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ .Site.Title }}" />
+    <meta property="og:description" content="{{ .Site.Params.description }}" />
+    <meta property="og:url" content="{{ .Site.BaseURL }}" />
+    <meta property="og:image" content="{{ .Site.BaseURL }}images/cover.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ .Site.Title }}" />
+    <meta name="twitter:description" content="{{ .Site.Params.description }}" />
+    <meta name="twitter:url" content="{{ .Site.BaseURL }}" />
+    <meta name="twitter:image" content="{{ .Site.BaseURL }}images/cover.jpg" />
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "publisher": {
+                "@type": "Organization",
+                "name": "{{ .Site.Title }}",
+                "url": "{{ .Site.BaseURL }}",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "{{ .Site.BaseURL }}images/icon.png"
+                }
+            },
+            "url": "{{ .Site.BaseURL }}",
+            "image": {
+                "@type": "ImageObject",
+                "url": "{{ .Site.BaseURL }}images/icon.png",
+                "width": 192,
+                "height": 192
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "{{ .Site.BaseURL }}"
+            },
+            "description": "{{ .Site.Params.description }}"
+        }
+    </script>{{ else }}<link rel="canonical" href="{{ .Permalink }}" />
+    <meta property="og:site_name" content="{{ .Site.Title }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ .Title }}" />
+    <meta property="og:description" content="{{with .Params.description}}{{.}}{{else}}{{if gt (len .Summary) 160}}{{slicestr .Summary 0 160}}{{end}}{{end}}" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:image" content="{{ .Params.image }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ .Title }}" />
+    <meta name="twitter:description" content="{{with .Params.description}}{{.}}{{else}}{{if gt (len .Summary) 160}}{{slicestr .Summary 0 160}}{{end}}{{end}}" />
+    <meta name="twitter:url" content="{{ .Permalink }}" />
+    <meta name="twitter:image" content="{{ .Params.image }}" />
+    <script type="application/ld+json">
+        {
+            "@context":"https://schema.org",
+            "@type":"Article",
+            "mainEntityOfPage": {
+                "@type":"WebPage",
+                "@id":"{{ .Site.BaseURL }}"
+            },
+            "headline":"{{ .Title }}" ,
+            "description":"{{with .Params.description}}{{.}}{{else}}{{if gt (len .Summary) 160}}{{slicestr .Summary 0 160}}{{end}}{{end}}",
+            "image":"{{ .Params.image }}",  
+            "url":"{{ .Permalink }}",
+            "datePublished":"{{ .Params.date }}",
+            "dateModified":"{{ .Params.date }}",
+            "author": {
+                "@type":"Person",
+                "name":"{{ .Site.Title }}"
+            }
+        }</script>{{ end }}
+        <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=642d28646134c500128cea07&product=inline-share-buttons&source=platform" async="async"></script>
+        <script type="text/javascript" src="/js/lozad.min.js"></script>
+        <meta name="p:domain_verify" content="ba8c54ffe67924b90c05b1d45901964d"/>
+        <meta name="yandex-verification" content="c78ff9f7540a2bc6" />
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-X1L5TG1TFH"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-X1L5TG1TFH');
+        </script>
+        <!-- Default Statcounter code for embroiderylibraryprojects https://embroiderylibraryprojects.com/ -->
+        <script type="text/javascript">
+            var sc_project=12883468; 
+            var sc_invisible=1; 
+            var sc_security="a29324b1"; 
+        </script>
+        <script type="text/javascript"
+        src="https://www.statcounter.com/counter/counter.js"
+        async></script>
+        <noscript><div class="statcounter"><a title="Web Analytics"
+        href="https://statcounter.com/" target="_blank"><img
+        class="statcounter"
+        src="https://c.statcounter.com/12883468/0/a29324b1/1/"
+        alt="Web Analytics"
+        referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+        <!-- End of Statcounter Code -->
+</head>

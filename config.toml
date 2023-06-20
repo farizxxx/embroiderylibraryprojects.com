@@ -1,0 +1,70 @@
+baseURL = 'https://embroiderylibraryprojects.com/'
+languageCode = 'en-US'
+defaultContentLanguage = 'en-us'
+title = 'Embroidery Library Projects - Embroidery for Everyone' # Title on Meta Tags
+paginate = 10
+theme = 'alpha'
+enableRobotsTXT = true
+disableKinds = ['section', 'posts']
+
+[permalinks]
+  posts = '/:title/'
+  pages = '/:title/'
+
+
+[taxonomies]
+  category = 'categories'
+
+[outputs]
+  page = ['HTML']
+  home = ['HTML','RSS']
+  section = ['HTML']
+  taxonomyTerm = ['HTML']
+  taxonomy = ['HTML']
+
+[outputFormats]
+  [outputFormats.RSS]
+    mediatype = 'application/rss'
+    baseName = 'rss'    
+
+[params]
+  title = 'Embroidery Library Projects' # Title on Header
+  tagline = 'Embroidery for Everyone'
+  description = 'Discover Inspiring Embroidery Library Projects for Your Next DIY Project! From Embroidered Quilts to Personalized Clothing, Get Creative with Our Ideas.'
+  author = 'CreativeStitcher'
+  recentposts = 10
+
+[menu]
+
+  [[menu.main]]
+    identifier = 'home'
+    name = 'Home'
+    url = '/'
+    weight = 1
+
+  [[menu.main]]
+    identifier = 'about'
+    name = 'About'
+    url = '/about/'
+    weight = 2
+
+  [[menu.main]]
+    identifier = 'privacy-policy'
+    name = 'Privacy Policy'
+    url = '/privacy-policy/'
+    weight = 3
+
+  [[menu.main]]
+    identifier = 'dmca'
+    name = 'DMCA'
+    url = '/dmca/'
+    weight = 4
+
+# [menu]
+
+#   [[menu.socialsidebar]]
+#     identifier = 'facebook'
+#     name = 'facebook'
+#     url = '#'
+#     icon = '<i class='fa fa-facebook'></i>'
+#     weight = '1'

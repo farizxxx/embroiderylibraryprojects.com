@@ -1,0 +1,25 @@
+{{ define "main" }}
+    <div id="main-wrapper">
+        {{- partial "breadcrumb.html" . -}}
+        <article class="post">
+            <h1 class="post-title">
+                {{ .Title }}
+            </h1>
+            {{- partial "post-header.html" . -}}
+            <div class="post-body">
+                {{ .Content }}
+                <div class="clear"></div>
+            </div>
+            <div class="post-footer">
+                <div class="post-footer-line post-footer-line-1">
+                    <div class="clear"></div>
+                    <div class="post-share-wrap">
+                        {{- partial "share.html" . -}}
+                        {{- partial "related.html" . -}}
+                    </div>
+                </div>
+            </div>
+        </article>
+        <div class="clear"></div>
+    </div>
+{{ end }}

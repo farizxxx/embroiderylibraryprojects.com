@@ -1,0 +1,288 @@
+#main-wrapper {
+    background: 0 0;
+    border: 0
+}
+
+.post {
+    background: #fff;
+    position: relative;
+    padding: 15px;
+    margin: 0 auto 20px auto;
+    border: 1px solid rgb(188 188 188);
+    border-radius: 8px
+}
+
+.featured {
+    background: #fff;
+    position: relative;
+    padding: 15px;
+    margin: 0 auto 20px auto;
+    border: 2px dotted rgb(204 82 149);
+    border-radius: 8px
+}
+
+.post-thumb {
+    position: relative;
+    overflow: hidden;
+    float: left;
+    min-width: 220px;
+    max-width: 220px;
+    height: auto;
+    min-height: 160px;
+    max-height: 160px;
+    margin: 0 15px 0 0;
+    border-radius: 8px;
+}
+
+.post-thumbnail {
+    width: 100%;
+    height: auto
+}
+
+.post-thumb img {
+    background: #f1f2f6;
+    width: 100%;
+    object-fit: cover
+}
+
+.post-thumb .comment-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    color: #fff;
+    padding: 0
+}
+
+.post-thumb .comment-info a {
+    display: inline-block;
+    background: #de861d;
+    color: #fff;
+    padding: 10px
+}
+
+.snippets {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 8px 0
+}
+
+.post-thumb:hover .post-timestamp {
+    opacity: .85;
+    visibility: visible
+}
+
+.post-timestamp a abbr.published.updated {
+    border: 0;
+    cursor: pointer;
+    text-decoration: none
+}
+
+.post-info {
+    display: block;
+    padding: 5px 0;
+    color: #777;
+    line-height: 1.6em;
+    font-size: 14px;
+    overflow: hidden;
+    margin: 5px 0;
+    border: 0
+}
+
+.post-info a {
+    color: #777;
+    text-transform: none;
+    font-weight: 500
+}
+
+.post .label-info {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 2
+}
+
+.label-info a {
+    display: inline-block;
+    background: rgba(47, 53, 66, .55);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    text-decoration: none;
+    overflow: hidden;
+    padding: 5px 10px;
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 1;
+    border-radius: 4px;
+}
+
+.label-info a:hover {
+    background: rgba(47, 53, 66, .95);
+    color: #fff
+}
+
+.home-link,
+.label-info a:nth-child(n+2) {
+    display: none
+}
+
+#blog-pager {
+    position: relative;
+    display: block;
+    background: #fff;
+    clear: both;
+    overflow: visible;
+    width: auto;
+    padding: 15px;
+    text-align: left;
+    line-height: normal;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, .07);
+    margin: auto
+}
+
+.showpageNum a,
+.showpageOf,
+.showpagePoint {
+    background: #cc5295;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 4px;
+    padding: 6px 12px;
+    margin: 0 5px 0 0
+}
+
+.showpagePoint a,
+.showpageOf a {
+    color: #fff;
+}
+
+.showpageNum a:hover,
+.showpagePoint,
+.showpagePoint:hover {
+    background: #22262f;
+    color: #fff
+}
+
+.showpageNum a i {
+    font-size: 110%;
+    font-weight: 400
+}
+
+.image-content {
+    position: relative;
+    overflow: hidden
+}
+
+.posts-description {
+    position: relative;
+    z-index: 80;
+    display: table;
+    vertical-align: middle;
+    width: 100%
+}
+
+.posts-description p {
+    margin: 20px
+}
+
+.posts-description p a {
+    background: rgba(47, 53, 66, .75);
+    color: #fff;
+    padding: 4px 10px;
+    font-size: 11px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.posts-description p a:hover {
+    background: rgba(47, 53, 66, .95);
+    color: #fff
+}
+
+.posts-description h2 {
+    margin-top: 12%;
+    margin-bottom: 15px;
+    text-align: center
+}
+
+.posts-description h2 a {
+    color: #fff
+}
+
+.posts-description h2 a:hover {
+    text-decoration: underline
+}
+
+@media screen and (max-width:768px) {
+
+    h1.post-title.entry-title,
+    h2.post-title.entry-title {
+        display: flex
+    }
+
+    h1.post-title.entry-title a,
+    h2.post-title.entry-title a {
+        display: inline-block;
+        margin: 15px 0
+    }
+}
+
+@media screen and (max-width:640px) {
+
+    h1.post-title.entry-title,
+    h2.post-title.entry-title {
+        display: block
+    }
+
+    .post-thumb {
+        width: 100%;
+        margin: 0;
+        min-width: auto;
+        max-width: initial;
+        min-height: auto;
+        max-height: 200px
+    }
+
+    .post-thumbnail {
+        width: 100%;
+        height: auto
+    }
+
+    h1.post-title.entry-title a,
+    h2.post-title.entry-title a {
+        margin: 10px 0
+    }
+
+    #blog-pager {
+        padding: 20px
+    }
+
+    .showpageNum a,
+    .showpagePoint {
+        margin: 0 4px 4px 0
+    }
+
+
+}
+
+@media screen and (max-width:320px) {
+    .post {
+        padding: 22px 0
+    }
+
+    .post-thumb {
+        max-height: 160px
+    }
+
+    #blog-pager {
+        padding: 20px 0
+    }
+}

@@ -1,0 +1,36 @@
+<footer id="footer-wrapper">
+    <div id="footer-end">
+      <div class="hypecredit">Copyright © <span id="current-year">2023</span>
+        <a href="{{ .Site.BaseURL }}" title="{{ .Site.Params.Title }}">
+          <span>- {{ .Site.Params.Title }}.</span>
+        </a>All Right Reserved
+      </div>
+    </div>
+  </footer>
+  <div class="backtotop hider showe"><i class="fa fa-angle-up"></i></div>
+  <script>
+    const backToTopButton = document.querySelector('.backtotop');
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 500) {
+        backToTopButton.style.display = 'block';
+      } else {
+        backToTopButton.style.display = 'none';
+      }
+    });
+  </script>
+
+{{ if eq .Type "posts" }}
+<script src="/ads/ads.js"></script>
+{{ end }}
+
+<script>
+  const observer = lozad();
+  observer.observe();
+</script>
