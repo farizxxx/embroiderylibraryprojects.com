@@ -6,6 +6,7 @@ paginate = 10
 theme = 'alpha'
 enableRobotsTXT = true
 disableKinds = ['section', 'posts']
+disableHugoGeneratorInject = true
 
 [permalinks]
   posts = '/:title/'
